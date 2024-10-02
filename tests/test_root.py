@@ -1,15 +1,12 @@
 import unittest
+from server import root, MESSAGE
 
-import server
+class TestRoot(unittest.TestCase):
+    def test_message(self):
+        self.assertEqual(root(), MESSAGE.encode("utf-8"))
 
+    def test_message_type(self):
+        self.assertIsInstance(root(), bytes)
 
-class MyTestCase(unittest.TestCase):
-    def test_something(self):
-        self.assertEqual(server.root(), server.MESSAGE.encode("utf-8"))
-
-    def test_something_2(self):
-        self.assertNotEqual(server.root(), None)
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
